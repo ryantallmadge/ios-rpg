@@ -21,8 +21,8 @@
 		C00A3FBC1C1752660081AE68 /* 02 Underclocked (underunderclocked mix).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C00A3FBB1C1752660081AE68 /* 02 Underclocked (underunderclocked mix).mp3 */; };
 		C00A3FBE1C175CA70081AE68 /* soundEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A3FBD1C175CA70081AE68 /* soundEffects.swift */; };
 		C00A3FC61C1760B20081AE68 /* mis.wav in Resources */ = {isa = PBXBuildFile; fileRef = C00A3FC51C1760B20081AE68 /* mis.wav */; };
-		C00A3FC81C1761AF0081AE68 /* attack.wav in Resources */ = {isa = PBXBuildFile; fileRef = C00A3FC71C1761AF0081AE68 /* attack.wav */; };
-		C00A3FCA1C1761F00081AE68 /* loot.wav in Resources */ = {isa = PBXBuildFile; fileRef = C00A3FC91C1761F00081AE68 /* loot.wav */; };
+		C00A3FCD1C1766A00081AE68 /* loot.wav in Resources */ = {isa = PBXBuildFile; fileRef = C00A3FCB1C1766A00081AE68 /* loot.wav */; };
+		C00A3FCE1C1766A00081AE68 /* attack.wav in Resources */ = {isa = PBXBuildFile; fileRef = C00A3FCC1C1766A00081AE68 /* attack.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,8 @@
 		C00A3FBB1C1752660081AE68 /* 02 Underclocked (underunderclocked mix).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02 Underclocked (underunderclocked mix).mp3"; sourceTree = "<group>"; };
 		C00A3FBD1C175CA70081AE68 /* soundEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = soundEffects.swift; sourceTree = "<group>"; };
 		C00A3FC51C1760B20081AE68 /* mis.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mis.wav; sourceTree = "<group>"; };
-		C00A3FC71C1761AF0081AE68 /* attack.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = attack.wav; sourceTree = "<group>"; };
-		C00A3FC91C1761F00081AE68 /* loot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loot.wav; sourceTree = "<group>"; };
+		C00A3FCB1C1766A00081AE68 /* loot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loot.wav; sourceTree = "<group>"; };
+		C00A3FCC1C1766A00081AE68 /* attack.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = attack.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +114,8 @@
 			children = (
 				C00A3FBB1C1752660081AE68 /* 02 Underclocked (underunderclocked mix).mp3 */,
 				C00A3FC51C1760B20081AE68 /* mis.wav */,
-				C00A3FC91C1761F00081AE68 /* loot.wav */,
-				C00A3FC71C1761AF0081AE68 /* attack.wav */,
+				C00A3FCB1C1766A00081AE68 /* loot.wav */,
+				C00A3FCC1C1766A00081AE68 /* attack.wav */,
 				C00A3FBD1C175CA70081AE68 /* soundEffects.swift */,
 			);
 			name = music;
@@ -179,11 +179,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C00A3FC81C1761AF0081AE68 /* attack.wav in Resources */,
+				C00A3FCD1C1766A00081AE68 /* loot.wav in Resources */,
 				C00A3FC61C1760B20081AE68 /* mis.wav in Resources */,
+				C00A3FCE1C1766A00081AE68 /* attack.wav in Resources */,
 				C00A3FA51C162B4C0081AE68 /* LaunchScreen.storyboard in Resources */,
 				C00A3FA21C162B4C0081AE68 /* Assets.xcassets in Resources */,
-				C00A3FCA1C1761F00081AE68 /* loot.wav in Resources */,
 				C00A3FBC1C1752660081AE68 /* 02 Underclocked (underunderclocked mix).mp3 in Resources */,
 				C00A3FA01C162B4C0081AE68 /* Main.storyboard in Resources */,
 			);
