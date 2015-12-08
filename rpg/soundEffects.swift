@@ -15,7 +15,7 @@ class SoundEffects {
     var backGroundSoundAVA             : AVAudioPlayer!;
     var attackSoundAVA                 : AVAudioPlayer!;
     var lootSoundAVA                   : AVAudioPlayer!;
-    var misSoundAVA                   : AVAudioPlayer!;
+    var misSoundAVA                    : AVAudioPlayer!;
     var backgroundMusicFile            : String = "02 Underclocked (underunderclocked mix)";
     var attackSoundFile                : String = "attack";
     var lootSoundFile                  : String = "loot";
@@ -25,53 +25,47 @@ class SoundEffects {
         self.loadAttackSound();
         self.loadLootSound();
         self.loadMisSound();
+        self.loadBackgroundMusic();
+        self.playBackgroundMusic();
+    }
+    
+    private func loadMusic(file: String, fileType : String, loop : Bool) -> AVAudioPlayer{
+        let path     = NSBundle.mainBundle().pathForResource(file, ofType: fileType);
+        let soundURL = NSURL(fileURLWithPath: path!);
+        var audioPlayer  : AVAudioPlayer!;
+        
+        do{
+            try
+                audioPlayer = AVAudioPlayer(contentsOfURL: soundURL);
+                if(loop){
+                    audioPlayer.numberOfLoops = -1;
+                }
+                audioPlayer.prepareToPlay();
+                return audioPlayer;
+            
+        } catch let err as NSError{
+            print(err.debugDescription);
+        }
+        
+        return audioPlayer;
     }
     
     
     
     private func loadMisSound(){
-        let path     = NSBundle.mainBundle().pathForResource(misSoundFile, ofType: "wav");
-        let soundURL = NSURL(fileURLWithPath: path!);
-        
-        do{
-            try
-                misSoundAVA = AVAudioPlayer(contentsOfURL: soundURL);
-                misSoundAVA.prepareToPlay();
-            
-        } catch let err as NSError{
-            print(err.debugDescription);
-        }
-        
+        misSoundAVA = self.loadMusic(misSoundFile, fileType : "wav", loop : false);
     }
     
     private func loadLootSound(){
-        let path     = NSBundle.mainBundle().pathForResource(attackSoundFile, ofType: "wav");
-        let soundURL = NSURL(fileURLWithPath: path!);
-        
-        do{
-            try
-                lootSoundAVA = AVAudioPlayer(contentsOfURL: soundURL);
-                lootSoundAVA.prepareToPlay();
-            
-        } catch let err as NSError{
-            print(err.debugDescription);
-        }
-        
+        lootSoundAVA = self.loadMusic(lootSoundFile, fileType : "wav", loop : false);
     }
     
     private func loadAttackSound(){
-        let path     = NSBundle.mainBundle().pathForResource(lootSoundFile, ofType: "wav");
-        let soundURL = NSURL(fileURLWithPath: path!);
-        
-        do{
-            try
-                attackSoundAVA = AVAudioPlayer(contentsOfURL: soundURL);
-                attackSoundAVA.prepareToPlay();
-
-        } catch let err as NSError{
-            print(err.debugDescription);
-        }
+        attackSoundAVA = self.loadMusic(attackSoundFile, fileType : "wav", loop : false);
+    }
     
+    private func loadBackgroundMusic(){
+        backGroundSoundAVA = self.loadMusic(backgroundMusicFile, fileType : "mp3", loop : true);
     }
     
     func playMisSound(){
@@ -87,18 +81,6 @@ class SoundEffects {
     }
     
     func playBackgroundMusic(){
-        
-        let path     = NSBundle.mainBundle().pathForResource(backgroundMusicFile, ofType: "mp3");
-        let soundURL = NSURL(fileURLWithPath: path!);
-        
-        do{
-            try
-                backGroundSoundAVA = AVAudioPlayer(contentsOfURL: soundURL);
-                backGroundSoundAVA.numberOfLoops = -1;
-                backGroundSoundAVA.prepareToPlay();
-                backGroundSoundAVA.play();
-        } catch let err as NSError{
-            print(err.debugDescription);
-        }
+        backGroundSoundAVA.play();
     }
 }
