@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var enemyLbl     : UILabel!
@@ -18,23 +19,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var enemyImg     : UIImageView!
     
     var game : Game!;
+    var soundEffects : SoundEffects!;
+
     
 
     @IBAction func pressChestButton(sender: AnyObject) {
+        soundEffects.playLootSound();
         chestButton.hidden = true;
         printLbl.text = game.droppedLoot;
         respawnEnemy();
+        
     }
     
     @IBAction func pressAttackButton(sender: AnyObject) {
         let int_attackPower = UInt32(game.player.attackPower);
         let attackPower = Int(arc4random_uniform(int_attackPower));
         
+
+        
         if(game.enemy.attemptAttack(attackPower)){
             printLbl.text = "\(game.player.name) Attacked \(game.enemy.type) for \(attackPower)";
             enemyLbl.text = "\(game.enemy.hp) HP";
+            soundEffects.playAttackSound();
         }else{
             printLbl.text = "Attack for \(attackPower) was unsuccessful!";
+            soundEffects.playMisSound();
+            
         }
         
         if(!game.enemy.isAlive){
@@ -55,7 +65,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        game = Game(playerName: "Ryan");
+        soundEffects = SoundEffects();
+        game         = Game(playerName: "Ryan");
+        soundEffects.playBackgroundMusic();
         // Do any additional setup after loading the view, typically from a nib.
         playerLbl.text = "\(game.player.hp) HP";
         generateEnemy();
