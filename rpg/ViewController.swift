@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var attackButton : UIButton!
     @IBOutlet weak var enemyImg     : UIImageView!
     
-    var game : Game!;
-    var soundEffects : SoundEffects!;
+    var game            : Game!;
+    var soundEffects    : SoundEffects!;
 
     
 
@@ -33,9 +33,7 @@ class ViewController: UIViewController {
     
     @IBAction func pressAttackButton(sender: AnyObject) {
         let int_attackPower = UInt32(game.player.attackPower);
-        let attackPower = Int(arc4random_uniform(int_attackPower));
-        
-
+        let attackPower     = Int(arc4random_uniform(int_attackPower));
         
         if(game.enemy.attemptAttack(attackPower)){
             printLbl.text = "\(game.player.name) Attacked \(game.enemy.type) for \(attackPower)";

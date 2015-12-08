@@ -26,7 +26,6 @@ class SoundEffects {
         self.loadLootSound();
         self.loadMisSound();
         self.loadBackgroundMusic();
-        self.playBackgroundMusic();
     }
     
     private func loadMusic(file: String, fileType : String, loop : Bool) -> AVAudioPlayer{
