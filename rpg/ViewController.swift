@@ -68,7 +68,6 @@ class ViewController: UIViewController {
         soundEffects = SoundEffects();
         game         = Game(playerName: "Ryan");
         soundEffects.playBackgroundMusic();
-        // Do any additional setup after loading the view, typically from a nib.
         playerLbl.text = "\(game.player.hp) HP";
         generateEnemy();
     }
